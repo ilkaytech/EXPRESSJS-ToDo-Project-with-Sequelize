@@ -1,1 +1,1 @@
-# EXPRESSJS-ToDo-Project-with-Sequelize
+# EXPRESSJS ToDo Project with Sequelize
