@@ -26,15 +26,15 @@ const sequelize = new Sequelize(
 );
 //sequelize.define('tableName', { colums})
 const Todo = sequelize.define("todo", {
-  id: {
-    type: DataTypes.INTEGER,
-    unique: true,
-    allowNull: false,
-    field_name: "custom_column_name",
-    comment: "Description",
-    primaryKey: true,
-    autoIncrement: true,
-  },
+  //   id: {
+  //     type: DataTypes.INTEGER,
+  //     unique: true,
+  //     allowNull: false,
+  //     field_name: "custom_column_name",
+  //     comment: "Description",
+  //     primaryKey: true,
+  //     autoIncrement: true,
+  //   },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -53,6 +53,8 @@ const Todo = sequelize.define("todo", {
     defaultValue: false,
   },
 });
+
+sequelize.sync();
 /* ------------------------------------------------------- */
 
 const errorHandler = (err, req, res, next) => {
