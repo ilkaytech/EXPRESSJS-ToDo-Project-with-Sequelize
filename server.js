@@ -14,13 +14,16 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 
 app.all("/", (req, res) => {
-  res.send("WELCOME TO TODO API");
+  res.send("WELCOME TO TODO APpI");
 });
 
 /* ------------------------------------------------------- */
-//* TodoModel moved to todo.model.js
-
-// app.use(require("./todo.router"));
+//* SEQUELİZE
+const { Sequelize, DataTypes } = require("sequelize");
+// const sequelize = new Sequelize("sqlite:./db.sqlite3");
+const sequelize = new Sequelize(
+  "sqlite:" + (process.env.SQLITE || "./db.sqlite3")
+);
 
 /* ------------------------------------------------------- */
 
