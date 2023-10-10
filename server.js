@@ -20,11 +20,39 @@ app.all("/", (req, res) => {
 /* ------------------------------------------------------- */
 //* SEQUELİZE
 const { Sequelize, DataTypes } = require("sequelize");
-// const sequelize = new Sequelize("sqlite:./db.sqlite3");
+
 const sequelize = new Sequelize(
   "sqlite:" + (process.env.SQLITE || "./db.sqlite3")
 );
-
+//sequelize.define('tableName', { colums})
+const Todo = sequelize.define("todo", {
+  id: {
+    type: DataTypes.INTEGER,
+    unique: true,
+    allowNull: false,
+    field_name: "custom_column_name",
+    comment: "Description",
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  priority: {
+    type: DataTypes.TINYINT,
+    allowNull: false,
+  },
+  isDone: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  },
+});
 /* ------------------------------------------------------- */
 
 const errorHandler = (err, req, res, next) => {
