@@ -4,13 +4,13 @@
 ------------------------------------------------------- */
 //* SEQUELIZE
 
-const { Sequelize, DataTypes } = require("sequelize");
+const { sequelize, DataTypes } = require("../dbConnection");
 // Where is DB (DB Connection Details):
 // const sequelize = new Sequelize('postgres://postgres:12345678@localhost:5432/todoCH14') // $ npm i pg pg-hstore
 // const sequelize = new Sequelize('sqlite:./db.sqlite3')
-const sequelize = new Sequelize(
-  "sqlite:" + (process.env.SQLITE || "./db.sqlite3")
-);
+// const sequelize = new Sequelize(
+//   "sqlite:" + (process.env.SQLITE || "./db.sqlite3")
+// );
 
 // sequelize.define('tableName', { columns })
 const Todo = sequelize.define("todo", {

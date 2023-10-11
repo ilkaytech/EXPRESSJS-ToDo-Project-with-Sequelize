@@ -2,6 +2,7 @@
 /* -------------------------------------------------------
     EXPRESSJS - TODO Project with Sequelize
 ------------------------------------------------------- */
+require("express-async-errors");
 
 const Todo = require("../models/todo");
 

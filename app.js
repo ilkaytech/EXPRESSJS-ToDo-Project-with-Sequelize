@@ -18,8 +18,8 @@ app.use(require("./app/routes/todo"));
 
 /* ------------------------------------------------------- */
 // Database Connection:
-// const dbConnection = require("./app/dbConnection");
-// dbConnection();
+const { dbConnection } = require("./app/dbConnection");
+dbConnection();
 
 // errorHandler
 app.use(require("./app/errorHandler"));
