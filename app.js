@@ -13,23 +13,15 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 
-/* ------------------------------------------------------- */
-//* TodoModel moved to todo.model.js
-
-app.use(require("./todo.router"));
+// Router
+app.use(require("./app/routes/todo"));
 
 /* ------------------------------------------------------- */
+// Database Connection:
+// const dbConnection = require("./app/dbConnection");
+// dbConnection();
 
-const errorHandler = (err, req, res, next) => {
-  const errorStatusCode = res.errorStatusCode ?? 500;
-  console.log("errorHandler runned.");
-  res.status(errorStatusCode).send({
-    error: true,
-    message: err.message,
-    cause: err.cause,
-    body: req.body,
-  });
-};
-app.use(errorHandler);
+// errorHandler
+app.use(require("./app/errorHandler"));
 /* ------------------------------------------------------- */
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
